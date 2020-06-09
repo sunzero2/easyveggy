@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+
+.mypageHeader {
+	position:fixed;
+	top:13%;
+	color:#a651cb;
+}
+
+
+.intenBody {
+	margin-top: 22px;
+}
+
+table {
+	position:fixed;
+	border: 1px solid lightseagreen;
+	border-spacing: 0px;
+	margin-top: 22px;
+	
+}
+
+.privacyTh {
+	border-right: 1px solid lightseagreen;
+	border-bottom: 1px solid lightseagreen;
+	width: 120px;
+	text-align: left;
+	font-size: 14px;
+}
+
+.privacyTd {
+	border-bottom: 1px solid lightseagreen;
+	width: 450px;
+	padding: 15px;
+}
+
+.changeNickname, .changePw, .changeCell {
+	display: none;
+}
+
+.privacyTdTitle {
+	font-size: 14px;
+	margin-left: 10px;
+	color: #519092;
+}
+
+.privacyBtn {
+	border: 0.5px solid #8cc5c1;
+    background: #8cc5c1;
+    border-radius: 30px;
+    width: 60px;
+    height: 30px;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 10px;
+    color: aliceblue;
+}
+
+.innerThDiv {
+	margin-left: 20px;
+	color: #519092;
+}
+
+.privacyInput {
+	margin: 10px;
+    width: 200px;
+    height: 25px;
+    background: #ffc687b8;
+    border-radius: 30px;
+    border: 1px solid #8cc5c1;
+    color: blueviolet;
+}
+
+tbody {
+	vertical-align: initial;
+}

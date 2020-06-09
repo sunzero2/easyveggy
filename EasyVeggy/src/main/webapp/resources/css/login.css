@@ -1,0 +1,64 @@
+.memInput {
+	border: none;
+	border-radius: 30px;
+	background: #ce98ff;
+}
+
+.searchMem {
+	color: #212529;
+	float: right;
+	padding: 0px;
+	margin-right: 10px;
+	margin-top: 16px;
+}
+
+.content {
+	background: lightyellow;
+	width: 800px;
+	height: 700px;
+}
+
+.loginWrapper {
+	display: inline-block;
+	width: 400px;
+	height: 700px;
+	text-align: center;
+	position: absolute;
+}
+
+.loginHr {
+	display: inline-block;
+	height: 697px;
+	margin: 0px;
+	border: 1px solid;
+	position: absolute;
+	margin-left: 397px;
+}
+
+.joinWrapper {
+	float: right;
+	display: inline-block;
+	width: 400px;
+	height: 700px;
+	text-align: center;
+}
+
+.loginTitle {
+	margin-top: 130px;
+}
+
+.login {
+	height: 45px;
+	margin-top: 23px;
+	width: 260px;
+}
+
+.loginBtn {
+	margin-top: 29px;
+}
+
+.join {
+	margin-top: 10px;
+	width: 260px;
+	height: 35px;
+}

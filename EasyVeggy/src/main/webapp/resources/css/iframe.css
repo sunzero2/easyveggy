@@ -1,0 +1,49 @@
+@charset "UTF-8";
+.screenDiv {
+	position: fixed;
+	background: rgb(136, 136, 136);
+	width: 100%;
+	height: 100%;
+	z-index: 101;
+	left: 0;
+	top: 0;
+	opacity: 0.6;
+	display: none;
+}
+
+.innerDiv {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 102;
+	left: 0;
+	top: 0;
+	display: none;
+}
+
+.iframeWrapper {
+	background: white;
+    height: 800px;
+    width: 800px;
+    margin-top: 5%;
+    margin-left: 25%;
+    border-radius: 20px;
+}
+
+.closeBtn {
+	font-size: 40px;
+    margin-left: 740px;
+    margin-top: 20px;
+    border: none;
+    background: white
+}
+
+.iframe {
+    width: 800px;
+    height: 700px;
+    background: white;
+    z-index: 20;
+    left: 0;
+    top: 0;
+    border: none;
+}
