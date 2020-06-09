@@ -3,9 +3,11 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.hy.easyveggy.menu.model.vo.Menu" alias="Menu"/>
+		<typeAlias type="com.hy.easyveggy.review.model.vo.Review" alias="Review"/>
 	</typeAliases>
 
 	<mappers>
-		<mapper resource="/mybatis/mapper/MenuMapper.xml"/>
+		<mapper resource="/mybatis/mapper/menuMapper.xml"/>
+		<mapper resource="/mybatis/mapper/reviewMapper.xml"/>
 	</mappers>
 </configuration>

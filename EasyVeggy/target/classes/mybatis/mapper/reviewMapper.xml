@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Review">
+	<select id="selectReview" resultType="Review">
+		select * from treview inner join tmember using(userid) where menuid = #{menuId}
+	</select>
+	
+	<insert id="insertReview">
+		insert into treview values(s_review.nextval, null, ?, sysdate, ?, ?, ?, null, null)
+	</insert>
+</mapper>

@@ -97,10 +97,9 @@ function choose() {
 			})
 			
 			.done(function() {
-				console.dir(menuArr);
 				var row = document.querySelector('#row');
 				row.innerHTML = "";
-				for(i = 0; i < 6; i++) {
+				for(i = 0; i < menuArr.length; i++) {
 					var menuWrapper = document.createElement('div');
 					var portfolioItem = document.createElement('div');
 					var portfolioLink = document.createElement('a');
@@ -122,7 +121,7 @@ function choose() {
 					portfolioHoverContent.className = "portfolio-hover-content";
 					portfolioIcon.className = "fas fa-seedling fa-3x";
 					imgFluid.className = "img-fluid";
-					imgFluid.src = "/easyveggy/resources/image/after/portfolio/" + menuArr[i].MENUID + ".jpg";
+					imgFluid.src = "/easyveggy/resources/image/after/portfolio/VGN-IND-12-0404.jpg";
 					portfolioCaption.className = "portfolio-caption"
 					portfolioCaptionHeading.className = "portfolio-caption-heading";
 					portfolioCaptionHeading.textContent = menuArr[i].MENU;
@@ -280,28 +279,24 @@ function menuInfoBox() {
 	})
 }
 
-
-
 var arr = null;
-
 function getReview() {
 	if (index < 0) {
 		alert('첫 페이지입니다.');
 		index = 0;
 	} else {
 		$.ajax({
-			url : 'http://localhost:8787/vgan/info/getreview',
+			url : '/easyveggy/review/getreview.do',
 			data : {
 				"menuId" : menuId,
 				"index" : index
 			},
 			type : "post",
 			success : function(v) {
-				var jObj = JSON.parse(v);
-				if(jObj.length > 0) {
+				if(v > 0) {
 					arr = new Array;
-					for(i = 0; i < jObj.length; i++) {
-						arr.push(jObj[i]);
+					for(i = 0; i < v.length; i++) {
+						arr.push(v[i]);
 					}
 				} else {
 					arr = null;
@@ -392,11 +387,11 @@ var starArr = document.querySelectorAll('.star');
 starArr.forEach(function(el) {
 	el.addEventListener('click', function() {
 		for (i = 0; i < starArr.length; i++) {
-			starArr[i].src = 'http://localhost:8787/vgan/resources/image/after/portfolio/starN.png';
+			starArr[i].src = '/easyveggy/resources/image/after/portfolio/starN.png';
 		}
 
 		for (i = 0; i < el.id; i++) {
-			starArr[i].src = 'http://localhost:8787/vgan/resources/image/after/portfolio/starY.png';
+			starArr[i].src = '/easyveggy/resources/image/after/portfolio/starY.png';
 		}
 
 		star = (el.id).substr(1);
@@ -406,7 +401,7 @@ starArr.forEach(function(el) {
 var content = document.querySelector('.area');
 function addReview() {
 	$.ajax({
-		url : 'http://localhost:8787/vgan/info/addreview',
+		url : '/easyveggy/review/addreview.do',
 		data : {
 			"star" : star,
 			"menuId" : menuId,
