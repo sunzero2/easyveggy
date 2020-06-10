@@ -17,4 +17,8 @@ public class ReviewDao {
 	public List<Review> getReviews(Map<String, String> data) {
 		return sqlSession.selectList("Review.selectReview", data);
 	}
+	
+	public int addReview(Review review) {
+		return sqlSession.insert("Review.insertReview", review);
+	}
 }

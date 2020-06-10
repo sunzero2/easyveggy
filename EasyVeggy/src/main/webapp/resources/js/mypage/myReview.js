@@ -1,18 +1,16 @@
 var reviewArr = null;
 function getReview() {
 	$.ajax({
-		url: "http://localhost:8787/vgan/mypage/myreview",
+		url: "/easyveggy/mypage/myreview.do",
 		data: {
 			"userId": myId
 		},
 		type: "post",
 		success: function(v) {
-			var jObj = JSON.parse(v);
-			
-			if(jObj.length > 0) {
+			if(v.length > 0) {
 				reviewArr = new Array();
-				for(i = 0; i < jObj.length; i++) {
-					reviewArr.push(jObj[i]);
+				for(i = 0; i < v.length; i++) {
+					reviewArr.push(v[i]);
 				}
 			} else {
 				reviewArr = null;
@@ -133,7 +131,7 @@ function btnClick() {
 			} else if(el.textContent == '삭제하기') {
 				if(confirm("리뷰를 삭제하시겠어요?")) {
 					$.ajax({
-						url: "http://localhost:8787/vgan/mypage/delreview",
+						url: "/easyveggy/mypage/delreview.do",
 						data: {
 							"revId": reviewArr[idx].revId
 						},
@@ -160,7 +158,7 @@ function createBtn(idx) {
 		el.addEventListener('click', function(v) {
 			if(el.textContent == '저장') {
 				$.ajax({
-					url: "http://localhost:8787/vgan/mypage/chgreview",
+					url: "/easyveggy/mypage/chgreview.do",
 					data: {
 						"revId": reviewArr[idx].revId,
 						"cont": document.querySelector('#cont' + idx).value

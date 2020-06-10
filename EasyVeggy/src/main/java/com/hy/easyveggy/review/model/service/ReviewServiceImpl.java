@@ -18,4 +18,9 @@ public class ReviewServiceImpl implements ReviewService {
 	public List<Review> getReviews(Map<String, String> data) {
 		return reviewDao.getReviews(data);
 	}
+
+	@Override
+	public int addReview(Review review) {
+		return reviewDao.addReview(review);
+	}
 }

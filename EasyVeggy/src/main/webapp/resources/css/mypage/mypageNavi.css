@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+body {
+	font-family: 'Varela Round', sans-serif;
+	background-image:
+		url("/easyveggy/resources/image/after/mbgimge15.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.modal-login {
+	width: 160px;
+	height: 400px;
+	top: 10%;
+	left: 3%;
+	position: fixed;
+}
+
+.modal-login .modal-content {
+	padding: 30px 30px 30px 30px;
+	border-radius: 25px;
+	border: none;
+	background: blanchedalmond;
+}
+
+.modal-login .modal-header {
+	border-bottom: none;
+	position: relative;
+	justify-content: center;
+}
+
+.modal-login h4 {
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	color: #a077ff;
+}
+
+.modal-login .form-control, .modal-login .btn {
+	min-height: 40px;
+	border-radius: 30px;
+	font-size: 15px;
+	transition: all 0.5s;
+}
+
+.modal-login .hint-text {
+	text-align: center;
+	padding-top: 10px;
+}
+
+.modal-login .close {
+	position: absolute;
+	top: -50px;
+	right: -20px;
+	color: #8250f5;
+	font-size: xxx-large;
+}
+
+.modal-login .btn {
+	background: #a177ff;
+	border-radius: 50%;
+	height: 100px;
+	width: 100px;
+}
+
+.modal-login .btn:hover, .modal-login .btn:focus {
+	background: #8753ff;
+}
+
+.trigger-btn {
+	display: inline-block;
+	margin: 100px auto;
+}
+
+.modal-header-logo {
+	position: fixed;
+	top: 20%;
+	left: 22%;
+	width: 260px;
+}
+
+p {
+	font-size: 13px;
+	color: #a077ff;
+	text-align: center;
+	margin-bottom: -10px;
+}
+
+a:link, a:visited {
+	top: 45%;
+	color: white;
+	text-decoration: none;
+	cursor: auto;
+	text-align: center;
+	position: relative;
+}
+
+.form-group {
+	margin-top: 23px;
+}
+
+#cir1 {
+	background: #f5b1cf;
+	border: none;
+	margin-bottom: 10px;
+}
+
+#cir2 {
+	background: #8cc5c1;
+	border: none;
+	margin-bottom: 10px;
+}
+
+#cir3 {
+	background: #ffc687;
+	border: none;
+	margin-bottom: 10px;
+}
+
+#cir4 {
+	background: #d8b0eb;
+	border: none;
+	margin-bottom: 10px;
+}

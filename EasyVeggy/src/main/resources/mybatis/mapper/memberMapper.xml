@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Member">
+	<select id="login" resultType="Member">
+		select * from tmember where useremail= #{userEmail} and pw= #{pw}
+	</select>
+	
+	<insert id="join">
+		insert into tmember values(s_member.nextval, #{pw}, null, null, #{userEmail}, #{nickname})
+	</insert>
+	
+	<select id="searchId" resultType="String">
+		select useremail from tmember where cell=#{cell} and nickname=#{nickname}
+	</select>
+	
+	<select id="searchPw" resultType="String">
+		select * from tmember where userEmail=#{userEmail} and nickname=#{nickname}
+	</select>
+	
+	<update id="changePw">
+		update tmember set pw=#{userPw} where useremail=#{userEmail}
+	</update>
+</mapper>

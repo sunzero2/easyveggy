@@ -403,9 +403,9 @@ function addReview() {
 	$.ajax({
 		url : '/easyveggy/review/addreview.do',
 		data : {
-			"star" : star,
+			"revStar" : star,
 			"menuId" : menuId,
-			"content" : content.value
+			"revContent" : content.value
 		},
 		type : 'post',
 		success : function(v) {

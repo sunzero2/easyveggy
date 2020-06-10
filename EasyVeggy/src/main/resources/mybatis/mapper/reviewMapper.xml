@@ -5,7 +5,7 @@
 		select * from treview inner join tmember using(userid) where menuid = #{menuId}
 	</select>
 	
-	<insert id="insertReview">
-		insert into treview values(s_review.nextval, null, ?, sysdate, ?, ?, ?, null, null)
+	<insert id="insertReview" parameterType="Review">
+		insert into treview values(s_review.nextval, null, #{userId}, sysdate, #{revContent}, ${revStar}, #{menuId}, null, null)
 	</insert>
 </mapper>

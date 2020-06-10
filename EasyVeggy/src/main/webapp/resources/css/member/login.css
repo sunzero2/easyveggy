@@ -1,0 +1,93 @@
+body {
+   font-family: 'Varela Round', sans-serif;
+   background-image: url("/easyveggy/resources/image/after/mbgimge2.jpg");
+}
+.modal-login {
+   width: 500px;
+   height: 400px;
+}
+.modal-login .modal-content {
+   padding: 150px 80px 50px 80px;
+   border-radius: 25px;
+   border: none;
+   background-image: url("/easyveggy/resources/image/after/mbgimgesmallV.jpg");
+}
+.modal-login .modal-header {
+   border-bottom: none;
+   position: relative;
+   justify-content: center;
+}
+.modal-login h4 {
+   text-align: center;
+   font-size: 25px;
+   font-weight: bold;
+   color: #a077ff;
+   position:absolute;
+}
+.modal-login .form-group {
+   margin-bottom: 20px;
+}
+.modal-login .form-control, .modal-login .btn {
+   min-height: 40px;
+   border-radius: 30px;
+   font-size: 15px;
+   transition: all 0.5s;
+}
+.modal-login .form-control {
+   font-size: 13px;
+}
+.modal-login .form-control:focus {
+   border-color: #a177ff;
+}
+.modal-login .hint-text {
+   text-align: center;
+   padding-top: 10px;
+}
+.modal-login .close {
+   position: absolute;
+   top: -50px;
+   right: -20px;
+   color: #8250f5;
+   font-size: xxx-large;
+}
+.modal-login .btn {
+   background: #a177ff;
+   border: none;
+   line-height: normal;
+}
+.modal-login .btn:hover, .modal-login .btn:focus {
+   background: #8753ff;
+}
+.trigger-btn {
+   display: inline-block;
+   margin: 100px auto;
+}
+.or-seperator {
+   margin: 25px 0 0px;
+   text-align: center;
+   border-top: 2.3px solid #fff;
+}
+.or-seperator b {
+   padding: 0 10px;
+   width: 40px;
+   height: 40px;
+   font-size: 16px;
+   text-align: center;
+   line-height: 40px;
+   background: #fff;
+   display: inline-block;
+   border-radius: 50%;
+   position: relative;
+   top: -22px;
+   z-index: 1;
+}
+.form-control {
+   background-color: #fdf8c2;
+   border: 0.25px solid #ccc;
+}
+.modal-header-logo {
+   position: relative;
+   top: -100px;
+   left: 25px;
+   width: 260px;
+}

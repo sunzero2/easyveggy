@@ -20,7 +20,7 @@ function getIcon() {
 	var todayM = today.getMonth()+1;
 	
 	$.ajax({
-		url: "http://localhost:8787/vgan/calendar/callist",
+		url: "/easyveggy/mypage/eventlist.do",
 		data: {
 			"month": todayM
 		},

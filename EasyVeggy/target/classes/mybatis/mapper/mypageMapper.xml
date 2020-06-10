@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mypage">
+	<select id="selectReview" resultType="Review">
+		select * from treview r inner join tmember m using(userid) where userid= #{userId}
+	</select>
+	
+	<delete id="deleteReview">
+		delete from treview where revid = #{revId}
+	</delete>
+	
+	<update id="updateReview">
+		update treview set revcontent = #{cont} where revid = #{revId}
+	</update>
+	
+	<update id="updateMember">
+		update tmember set nickname=#{nickname}, pw=#{pw}, cell=#{cell} where useremail=#{userEmail}
+	</update>
+	
+	<update id="updateVL">
+		update tmember set vlid=#{vLevel} where useremail=#{userEmail}
+	</update>
+	
+	<select id="getEvent" resultType="Calendar">
+		select * from tcalendar where userEmail = #{userEmail} and cdate like #{date}
+	</select>
+	
+	<select id="eventList" resultType="Calendar">
+		select * from (select substr(cdate, 6, 2) month, tcalendar.* from tcalendar where useremail = #{userEmail}) v where v.month like '%' || #{month} || '%'
+	</select>
+	
+	<insert id="addEvent">
+		insert into tcalendar values(#{userId}, #{cDate}, #{icon}, #{cMenu}, ${cPrice}, #{cCont})
+	</insert>
+	
+	<update id="updateEvent">
+		update tcalendar set icon=#{icon}, cmenu=#{cMenu}, cprice=${cPrice}, ccont=#{cCont} where userid=#{userId} and cdate=#{cDate}
+	</update>
+	
+	<delete id="deleteEvent">
+		delete from tcalendar where userid=#{userId} and cdate=#{cDate}
+	</delete>
+</mapper>

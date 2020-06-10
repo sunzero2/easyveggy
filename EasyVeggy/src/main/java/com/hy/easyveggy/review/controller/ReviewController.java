@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hy.easyveggy.member.model.vo.Member;
+import com.hy.easyveggy.mypage.model.vo.Calendar;
 import com.hy.easyveggy.review.model.service.ReviewService;
 import com.hy.easyveggy.review.model.vo.Review;
 
@@ -27,6 +31,7 @@ public class ReviewController {
 	@RequestMapping("/review/getreview.do")
 	@ResponseBody
 	public List<Review> getReviews(@RequestParam Map<String, String> data) {
+		System.out.println("ReviewController getReviews Method Run");
 		List<Review> list = reviewService.getReviews(data);
 		List<Review> revList = new ArrayList<>();
 		int index = Integer.parseInt(data.get("index"));
@@ -45,8 +50,8 @@ public class ReviewController {
 	
 	@RequestMapping("/review/addreview.do")
 	@ResponseBody
-	public int addReview(@RequestParam Map<String, String> data) {
-		
-		return 0;
+	public int addReview(Review review, HttpSession session) {
+		review.setUserId(((Member)session.getAttribute("loginInfo")).getUserId());
+		return reviewService.addReview(review);
 	}
 }

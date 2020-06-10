@@ -4,10 +4,14 @@
 	<typeAliases>
 		<typeAlias type="com.hy.easyveggy.menu.model.vo.Menu" alias="Menu"/>
 		<typeAlias type="com.hy.easyveggy.review.model.vo.Review" alias="Review"/>
+		<typeAlias type="com.hy.easyveggy.member.model.vo.Member" alias="Member"/>
+		<typeAlias type="com.hy.easyveggy.mypage.model.vo.Calendar" alias="Calendar"/>
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="/mybatis/mapper/menuMapper.xml"/>
 		<mapper resource="/mybatis/mapper/reviewMapper.xml"/>
+		<mapper resource="/mybatis/mapper/memberMapper.xml"/>
+		<mapper resource="/mybatis/mapper/mypageMapper.xml"/>
 	</mappers>
 </configuration>

@@ -7,4 +7,5 @@ import com.hy.easyveggy.review.model.vo.Review;
 
 public interface ReviewService {
 	public List<Review> getReviews(Map<String, String> data);
+	public int addReview(Review review);
 }
