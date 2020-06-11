@@ -26,7 +26,7 @@
 	</select>
 	
 	<select id="eventList" resultType="Calendar">
-		select * from (select substr(cdate, 6, 2) month, tcalendar.* from tcalendar where useremail = #{userEmail}) v where v.month like '%' || #{month} || '%'
+		select * from (select substr(cdate, 6, 2) month, tcalendar.* from tcalendar where userid = #{userId}) v where v.month like '%' || #{month} || '%'
 	</select>
 	
 	<insert id="addEvent">

@@ -1,12 +1,10 @@
 package com.hy.easyveggy.review.model.vo;
 
-import java.sql.Date;
-
 public class Review {
 	private int revId;
 	private String revTitle;
 	private int userId;
-	private Date revDate;
+	private String revDate;
 	private String revContent;
 	private int revStar;
 	private String menuId;
@@ -16,7 +14,7 @@ public class Review {
 		super();
 	}
 
-	public Review(int revId, String revTitle, int userId, Date revDate, String revContent, int revStar, String menuId,
+	public Review(int revId, String revTitle, int userId, String revDate, String revContent, int revStar, String menuId,
 			String nickName) {
 		super();
 		this.revId = revId;
@@ -53,11 +51,11 @@ public class Review {
 		this.userId = userId;
 	}
 
-	public Date getRevDate() {
+	public String getRevDate() {
 		return revDate;
 	}
 
-	public void setRevDate(Date revDate) {
+	public void setRevDate(String revDate) {
 		this.revDate = revDate;
 	}
 

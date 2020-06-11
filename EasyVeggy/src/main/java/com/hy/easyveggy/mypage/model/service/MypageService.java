@@ -12,7 +12,7 @@ public interface MypageService {
 	public int updateReview(Map<String, String> data);
 	public int updateMember(Map<String, String> data);
 	public int updateVLevel(Map<String, String> data);
-	public List<Calendar> eventList(Map<String, String> data);
+	public List<Calendar> eventList(Map<String, Object> data);
 	public Calendar getEvent(Map<String, String> data);
 	public int addEvent(Calendar calendar);
 	public int updateEvent(Calendar calendar);

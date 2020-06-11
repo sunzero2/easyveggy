@@ -358,7 +358,7 @@
         <!-- Contact form JS-->
         <script src="../resources/js/jqBootstrapValidation.js"></script>
         <script src="../resources/js/contact_me.js"></script>
-        <!-- <script src="../resources/js/scripts.js"></script> -->
+        <script src="../resources/js/scripts.js"></script>
         <script src="../resources/js/include/top.js"></script>
         <script src="../resources/js/index/index.js"></script>
         </body>

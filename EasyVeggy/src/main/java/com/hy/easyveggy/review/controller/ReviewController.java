@@ -48,6 +48,12 @@ public class ReviewController {
 		return revList;
 	}
 	
+	/**
+	  * @Method Name : addReview
+	  * @작성일 : 2020. 6. 11.
+	  * @작성자 : 이혜영
+	  * @Method 설명 : 리뷰 추가하는 메소드
+	  */
 	@RequestMapping("/review/addreview.do")
 	@ResponseBody
 	public int addReview(Review review, HttpSession session) {

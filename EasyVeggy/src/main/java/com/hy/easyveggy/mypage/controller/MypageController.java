@@ -170,8 +170,8 @@ public class MypageController {
 	@RequestMapping("/mypage/eventlist.do")
 	@ResponseBody
 	public List<Calendar> eventList(String month, HttpSession session) {
-		Map<String, String> data = new HashMap<String, String>();
-		data.put("userEmail", ((Member)session.getAttribute("loginInfo")).getUserEmail());
+		Map<String, Object> data = new HashMap<String, Object>();
+		data.put("userId", ((Member)session.getAttribute("loginInfo")).getUserId());
 		data.put("month", month);
 		return mypageService.eventList(data);
 	}
@@ -204,7 +204,7 @@ public class MypageController {
 		return mypageService.getEvent(data);
 	}
 	
-	@RequestMapping("/mypage/addevent.do")
+	@RequestMapping("/mypage/event.do")
 	public ModelAndView event(Calendar calendar, String btn, HttpSession session) {
 		ModelAndView mav = null;
 		

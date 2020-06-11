@@ -35,7 +35,7 @@ public class MypageDao {
 		return sqlSession.update("Mypage.updateVL", data);
 	}
 	
-	public List<Calendar> eventList(Map<String, String> data) {
+	public List<Calendar> eventList(Map<String, Object> data) {
 		return sqlSession.selectList("Mypage.eventList", data);
 	}
 	

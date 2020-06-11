@@ -41,7 +41,7 @@ public class MypageServiceImpl implements MypageService {
 	}
 
 	@Override
-	public List<Calendar> eventList(Map<String, String> data) {
+	public List<Calendar> eventList(Map<String, Object> data) {
 		return mypageDao.eventList(data);
 	}
 	

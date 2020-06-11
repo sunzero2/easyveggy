@@ -59,12 +59,13 @@ function getReview() {
 					deleteBtn.className = 'btn btn-primary btn-sm text-uppercase js-scroll-trigger';
 					deleteBtn.id = 'd' + i;
 					
-					var dateArr = reviewArr[i].revDate.split(" ");
-					var mm = dateArr[0].substring(0, dateArr[0].length-1);
-					if(mm < 10) {
-						mm = '0' + mm;
-					}
-					var dd = dateArr[1].substring(0, dateArr[0].length-1);
+					var dateArr = reviewArr[i].revDate.split("-");
+					console.dir(dateArr);
+					var mm = dateArr[1];
+					var dd = dateArr[2];
+					dd = dd.split(" ");
+					dd = dd[0];
+					
 					if(dd < 10) {
 						dd = '0' + dd;
 					}
@@ -73,7 +74,7 @@ function getReview() {
 					mediaCont.textContent = reviewArr[i].revContent;
 					dateDay.textContent = dd;
 					dateMonth.textContent = mm;
-					dateYear.textContent = dateArr[2];
+					dateYear.textContent = dateArr[0];
 					change.textContent = '수정하기';
 					deleteBtn.textContent = '삭제하기';
 					deleteBtn.style.marginLeft = '10px';
