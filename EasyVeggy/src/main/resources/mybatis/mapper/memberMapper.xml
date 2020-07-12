@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Member">
-	<select id="login" resultType="Member">
-		select * from tmember where useremail= #{userEmail} and pw= #{pw}
+	<resultMap id="member_map" type="Member">
+		<id column="user_id" property="userId"/>
+		<result column="user_email" property="userEmail"/>
+	</resultMap>
+	
+	<select id="login" resultMap="member_map">
+		select * from EV_MEMBER where USER_EMAIL= #{userEmail} and PW= #{pw}
 	</select>
 	
 	<insert id="join">
-		insert into tmember values(s_member.nextval, #{pw}, null, null, #{userEmail}, #{nickname})
+		insert into EV_MEMBER values(0, #{pw}, null, null, #{userEmail}, #{nickname})
 	</insert>
 	
 	<select id="searchId" resultType="String">
-		select useremail from tmember where cell=#{cell} and nickname=#{nickname}
+		select USER_EMAIL from EV_MEMBER where CELL=#{cell} and NICKNAME=#{nickname}
 	</select>
 	
 	<select id="searchPw" resultType="String">
-		select * from tmember where userEmail=#{userEmail} and nickname=#{nickname}
+		select PW from EV_MEMBER where USER_EMAIL=#{userEmail} and NICKNAME=#{nickname}
 	</select>
 	
 	<update id="changePw">
-		update tmember set pw=#{userPw} where useremail=#{userEmail}
+		update EV_MEMBER set PW=#{userPw} where USER_EMAIL=#{userEmail}
 	</update>
 </mapper>

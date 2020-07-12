@@ -2,42 +2,42 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Mypage">
 	<select id="selectReview" resultType="Review">
-		select * from treview r inner join tmember m using(userid) where userid= #{userId}
+		select * from EV_REVIEW r inner join EV_MEMBER m using(USER_ID) where USER_ID= #{userId}
 	</select>
 	
 	<delete id="deleteReview">
-		delete from treview where revid = #{revId}
+		delete from EV_REVIEW where REV_ID = #{revId}
 	</delete>
 	
 	<update id="updateReview">
-		update treview set revcontent = #{cont} where revid = #{revId}
+		update EV_REVIEW set REV_CONTENT = #{cont} where REV_ID = #{revId}
 	</update>
 	
 	<update id="updateMember">
-		update tmember set nickname=#{nickname}, pw=#{pw}, cell=#{cell} where useremail=#{userEmail}
+		update EV_MEMBER set NICKNAME=#{nickname}, PW=#{pw}, CELL=#{cell} where USER_EMAIL=#{userEmail}
 	</update>
 	
 	<update id="updateVL">
-		update tmember set vlid=#{vLevel} where useremail=#{userEmail}
+		update EV_MEMBER set VL_ID=#{vLevel} where USER_EMAIL=#{userEmail}
 	</update>
 	
 	<select id="getEvent" resultType="Calendar">
-		select * from tcalendar where userEmail = #{userEmail} and cdate like #{date}
+		select * from EV_CALENDAR where USER_EMAIL = #{userEmail} and C_DATE like #{date}
 	</select>
 	
 	<select id="eventList" resultType="Calendar">
-		select * from (select substr(cdate, 6, 2) month, tcalendar.* from tcalendar where userid = #{userId}) v where v.month like '%' || #{month} || '%'
+		select * from (select substr(C_DATE, 6, 2) month, EV_CALENDAR.* from EV_CALENDAR where USER_ID = #{userId}) v where v.month like (select concat('%', #{month}, '%'))
 	</select>
 	
 	<insert id="addEvent">
-		insert into tcalendar values(#{userId}, #{cDate}, #{icon}, #{cMenu}, ${cPrice}, #{cCont})
+		insert into EV_CALENDAR values(#{userId}, #{cDate}, #{icon}, #{cMenu}, ${cPrice}, #{cCont})
 	</insert>
 	
 	<update id="updateEvent">
-		update tcalendar set icon=#{icon}, cmenu=#{cMenu}, cprice=${cPrice}, ccont=#{cCont} where userid=#{userId} and cdate=#{cDate}
+		update EV_CALENDAR set ICON=#{icon}, E_MENU=#{cMenu}, C_PRICE=${cPrice}, C_CONT=#{cCont} where USER_ID=#{userId} and C_DATE=#{cDate}
 	</update>
 	
 	<delete id="deleteEvent">
-		delete from tcalendar where userid=#{userId} and cdate=#{cDate}
+		delete from EV_CALENDAR where USER_ID=#{userId} and C_DATE=#{cDate}
 	</delete>
 </mapper>

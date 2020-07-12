@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Review">
 	<select id="selectReview" resultType="Review">
-		select * from treview inner join tmember using(userid) where menuid = #{menuId}
+		select * from EV_REVIEW inner join EV_MEMBER using(USER_ID) where MENU_ID = #{menuId}
 	</select>
 	
 	<insert id="insertReview" parameterType="Review">
-		insert into treview values(s_review.nextval, null, #{userId}, sysdate, #{revContent}, ${revStar}, #{menuId}, null, null)
+		insert into EV_REVIEW values(0, null, #{userId}, sysdate, #{revContent}, ${revStar}, #{menuId}, null, null)
 	</insert>
 </mapper>

@@ -23,6 +23,7 @@
 		<div class="mypageHeader">
 			<div class="mypageTitle">개인정보수정</div>
 		</div>
+	${loginInfo}<br>
 		<table class="privacyTb">
 			<tbody>
 				<tr>
