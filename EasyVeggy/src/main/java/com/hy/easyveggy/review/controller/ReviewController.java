@@ -1,11 +1,10 @@
 package com.hy.easyveggy.review.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,22 +29,14 @@ public class ReviewController {
 	  */
 	@RequestMapping("/review/getreview.do")
 	@ResponseBody
-	public List<Review> getReviews(@RequestParam Map<String, String> data) {
-		System.out.println("ReviewController getReviews Method Run");
-		List<Review> list = reviewService.getReviews(data);
-		List<Review> revList = new ArrayList<>();
-		int index = Integer.parseInt(data.get("index"));
+	public Map getReviews(@RequestParam Map<String, String> data) {
+		int count = reviewService.reviewCount(data.get("menuId"));
+		List<Review> reviews = reviewService.getReviews(data);
+		Map reviewMap = new HashMap();
+		reviewMap.put("count", count);
+		reviewMap.put("reviews", reviews);
 		
-		try {
-			for (int i = 0; i < 5; i++) {
-				int cnt = i % 5;
-				int idx = cnt + (5 * index);
-				revList.add(list.get(idx));
-			}
-		} catch (IndexOutOfBoundsException e) {
-			
-		}
-		return revList;
+		return reviewMap;
 	}
 	
 	/**

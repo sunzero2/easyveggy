@@ -28,7 +28,37 @@
 			<hr style="margin-top: 25px;">
 			
 			<c:if test="${loginInfo.vLId != null}">
-				<div id="vL">${setVLevel}</div>
+				<div id="vL">
+					<c:choose>
+						<c:when test="${loginInfo.vLId == 'FXT'}">
+							플렉시테리언
+						</c:when>
+						<c:when test="${loginInfo.vLId == 'POP'}">
+							폴로페스코
+						</c:when>
+						<c:when test="${loginInfo.vLId == 'PSC'}">
+							페스코
+						</c:when>
+						<c:when test="${loginInfo.vLId == 'POL'}">
+							폴로
+						</c:when>
+						<c:when test="${loginInfo.vLId == 'LOV'}">
+							락토오보
+						</c:when>
+						<c:when test="${loginInfo.vLId == 'LTO'}">
+							락토
+						</c:when>
+						<c:when test="${loginInfo.vLId == 'OVO'}">
+							오보
+						</c:when>
+						<c:when test="${loginInfo.vLId == 'VGN'}">
+							비건
+						</c:when>
+						<c:otherwise>
+							프루테리언
+						</c:otherwise>
+					</c:choose>
+				</div>
 				<div>새롭게 설정하고 싶다면 아래 버튼을 눌러주세요!</div>
 			</c:if>
 			

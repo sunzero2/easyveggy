@@ -23,4 +23,9 @@ public class ReviewServiceImpl implements ReviewService {
 	public int addReview(Review review) {
 		return reviewDao.addReview(review);
 	}
+
+	@Override
+	public int reviewCount(String menuId) {
+		return reviewDao.reviewCount(menuId);
+	}
 }

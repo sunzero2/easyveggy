@@ -126,7 +126,7 @@ function choose() {
 					portfolioCaptionHeading.className = "portfolio-caption-heading";
 					portfolioCaptionHeading.textContent = menuArr[i].MENU;
 					portfolioCaptionSubheading.className = "portfolio-caption-subheading";
-					portfolioCaptionSubheading.textContent = menuArr[i].RESTNAME;
+					portfolioCaptionSubheading.textContent = menuArr[i].REST_NAME;
 					
 					row.appendChild(menuWrapper);
 					menuWrapper.appendChild(portfolioItem);
@@ -152,7 +152,6 @@ function choose() {
 
 
 var menuId;
-var index = 0;
 function menuInfoBox() {
 	var menuName = document.querySelector('#infoMenuName');
 	var menuPrice = document.querySelector('#infoMenuPrice');
@@ -164,8 +163,8 @@ function menuInfoBox() {
 	
 	document.querySelectorAll(".menuWrapper").forEach(function(el) {
 		el.addEventListener("click", function(v) {
-			menuId = menuArr[el.id].MENUID;
-			var after = menuArr[el.id].RESTHOUR.replace("(", " ");
+			menuId = menuArr[el.id].MENU_ID;
+			var after = menuArr[el.id].REST_HOUR.replace("(", " ");
 			after = after.replace(")", "");
 			var hourArr = after.split(" ");
 		
@@ -264,13 +263,13 @@ function menuInfoBox() {
 			}
 			
 			menuName.textContent = menuArr[el.id].MENU;
-			menuPrice.textContent = "￦" + menuArr[el.id].MENUPRICE;
-			restName.textContent = "Restaurant: " + menuArr[el.id].RESTNAME;
-			restLoc.textContent = "Location: " + menuArr[el.id].RESTLOC;
+			menuPrice.textContent = "￦" + menuArr[el.id].MENU_PRICE;
+			restName.textContent = "Restaurant: " + menuArr[el.id].REST_NAME;
+			restLoc.textContent = "Location: " + menuArr[el.id].REST_LOC;
 			if(menuArr[el.id].전화번호 == 'NULL') {
 				restCell.textContent = "매장번호가 비공개인 식당입니다.";
 			} else {
-				restCell.textContent = "Cell: " + menuArr[el.id].RESTPHONE;
+				restCell.textContent = "Cell: " + menuArr[el.id].REST_PHONE;
 			}
 			restHour.textContent = "Opening: " + hour;
 			area.value = "";
@@ -279,24 +278,32 @@ function menuInfoBox() {
 	})
 }
 
-var arr = null;
+var arr;
+var index = 0;
+var count = 0;
 function getReview() {
-	if (index < 0) {
+	var start = index * 5;
+	
+	if (start < 0) {
 		alert('첫 페이지입니다.');
-		index = 0;
+		start = 0;
+	} else if(start > count) {
+		alert('마지막 페이지입니다.');
+		start = count;
 	} else {
 		$.ajax({
 			url : '/easyveggy/review/getreview.do',
 			data : {
 				"menuId" : menuId,
-				"index" : index
+				"start": start
 			},
 			type : "post",
 			success : function(v) {
-				if(v > 0) {
+				count = v.count;
+				if(v.reviews.length > 0) {
 					arr = new Array;
-					for(i = 0; i < v.length; i++) {
-						arr.push(v[i]);
+					for(i = 0; i < v.reviews.length; i++) {
+						arr.push(v.reviews[i]);
 					}
 				} else {
 					arr = null;
@@ -307,7 +314,6 @@ function getReview() {
 		.done(function() {
 			var mediaList = document.querySelector('.media-list');
 			mediaList.innerHTML = "";
-			var revNo = 1;
 			if(arr !=  null) {
 				if(arr.length > 0) {
 					for (i = 0; i < arr.length; i++) {
@@ -340,12 +346,12 @@ function getReview() {
 						mediaCont.id = 'revUserCont';
 						mediaCont.className = 'media-comment';
 						
-						var dateArr = arr[i].revDate.split(" ");
-						var mm = dateArr[0].substring(0, dateArr[0].length-1);
+						var dateArr = arr[i].revDate.split("-");
+						var mm = dateArr[1].substring(0, dateArr[0].length-1);
 						if(mm < 10) {
 							mm = '0' + mm;
 						}
-						var dd = dateArr[1].substring(0, dateArr[0].length-1);
+						var dd = dateArr[2].substring(0, dateArr[0].length-1);
 						if(dd < 10) {
 							dd = '0' + dd;
 						}
@@ -354,7 +360,7 @@ function getReview() {
 						mediaCont.textContent = arr[i].revContent;
 						dateDay.textContent = dd;
 						dateMonth.textContent = mm;
-						dateYear.textContent = dateArr[2];
+						dateYear.textContent = dateArr[0];
 						
 						mediaList.appendChild(mediaLi);
 						mediaLi.appendChild(userImgURL);
@@ -369,13 +375,11 @@ function getReview() {
 						wellLg.appendChild(mediaCont);
 					}
 				}
-			} else if(index == 0) {
+			} else {
 				var div = document.createElement('div');
 				div.className = 'centerText'
 				div.textContent = "아직 등록된 리뷰가 없습니다.";
 				mediaList.appendChild(div);
-			} else {
-				alert("마지막 페이지입니다.");
 			}
 		})
 	}

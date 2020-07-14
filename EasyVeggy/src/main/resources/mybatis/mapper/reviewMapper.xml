@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Review">
-	<select id="selectReview" resultType="Review">
-		select * from EV_REVIEW inner join EV_MEMBER using(USER_ID) where MENU_ID = #{menuId}
+	<resultMap id="reviewResult" type="Review">
+		<id column="rev_id" property="revId"/>
+		<result column="rev_title" property="revTitle"/>
+		<result column="user_id" property="userId"/>
+		<result column="rev_content" property="revContent"/>
+		<result column="rev_star" property="revStar"/>
+		<result column="menu_id" property="menuId"/>
+		<result column="rev_date" property="revDate"/>		
+	</resultMap>
+	
+	<select id="reviewCount" resultType="Integer">
+		select count(*) from EV_REVIEW where MENU_ID = #{menuId}
+	</select>
+	
+	<select id="selectReview" resultMap="reviewResult">
+		select * from EV_REVIEW inner join EV_MEMBER using(USER_ID) where MENU_ID = #{menuId} limit ${start}, 5
 	</select>
 	
 	<insert id="insertReview" parameterType="Review">
-		insert into EV_REVIEW values(0, null, #{userId}, sysdate, #{revContent}, ${revStar}, #{menuId}, null, null)
+		insert into EV_REVIEW values(0, null, #{userId}, sysdate(), #{revContent}, ${revStar}, #{menuId}, null, null)
 	</insert>
 </mapper>

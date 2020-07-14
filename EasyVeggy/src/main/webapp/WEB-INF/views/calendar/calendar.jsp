@@ -69,7 +69,7 @@
 			
 			for(int i = 0; i < list.size(); i++) {
 				day = ((Calendar)list.get(i)).getcDate();
-				dayList.add(i, day.substring(day.length() - 2, day.length()));
+				dayList.add(day.substring(day.length() - 2, day.length()));
 			}
 			
 			String month = day.substring(5, 7);

@@ -14,6 +14,10 @@ public class ReviewDao {
 	@Autowired
 	SqlSession sqlSession;
 	
+	public int reviewCount(String menuId) {
+		return sqlSession.selectOne("Review.reviewCount", menuId);
+	}
+	
 	public List<Review> getReviews(Map<String, String> data) {
 		return sqlSession.selectList("Review.selectReview", data);
 	}
