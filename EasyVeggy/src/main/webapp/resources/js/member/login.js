@@ -5,7 +5,7 @@ var isSuccess = true;
 
 function emailCheck() {
 	$.ajax({
-		url: "/vgan/member/check",
+		url: "/easyveggy/member/check.do",
 		type: 'get',
 		data: $('#userEmail').serialize(),
 		success: function(data) {
