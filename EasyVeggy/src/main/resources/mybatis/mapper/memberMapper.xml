@@ -11,7 +11,7 @@
 	</select>
 	
 	<insert id="join">
-		insert into EV_MEMBER values(0, #{pw}, null, null, #{userEmail}, #{nickname})
+		insert into EV_MEMBER values(0, #{pw}, null, null, #{userEmail}, #{nickname}, 'Y')
 	</insert>
 	
 	<select id="searchId" resultType="String">

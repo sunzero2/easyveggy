@@ -29,10 +29,10 @@ function validate() {
 	return isSuccess;
 }
 
-document.querySelector('#userPwd').onkeydown = function(v) {
-	var pw = document.querySelector('#userPwd');
-	var regExpPw = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,15}$/;
-	var testStr = pw.value + v.key;
+let pw = document.getElementById('userPwd');
+pw.onkeydown = function(v) {
+	let regExpPw = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,15}$/;
+	let testStr = pw.value + v.key;
 	
 	function chk(re, e, msg) {
 		if(re.test(e)) {
