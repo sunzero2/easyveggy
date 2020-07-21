@@ -91,3 +91,8 @@ body {
    left: 25px;
    width: 260px;
 }
+
+.emailCheckBtn {
+	width: 20%;
+	display: inline-block;
+}

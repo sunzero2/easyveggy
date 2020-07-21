@@ -38,4 +38,14 @@ public class MemberServiceImpl implements MemberService {
 	public int changePw(Map<String, String> data) {
 		return memberDao.changePw(data);
 	}
+
+	@Override
+	public String emailCheck(String userEmail) {
+		return memberDao.emailCheck(userEmail);
+	}
+
+	@Override
+	public int secession(int userId) {
+		return memberDao.secession(userId);
+	}
 }

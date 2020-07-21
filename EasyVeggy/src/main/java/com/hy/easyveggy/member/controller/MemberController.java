@@ -1,9 +1,7 @@
 package com.hy.easyveggy.member.controller;
 
 import java.util.Map;
-
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,7 +37,7 @@ public class MemberController {
 	@RequestMapping("/member/logout.do")
 	public ModelAndView logout(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		session.setAttribute("loginInfo", null);
+		session.removeAttribute("loginInfo");
 		mav.setViewName("index/index");
 		return mav;
 	}
@@ -89,5 +87,21 @@ public class MemberController {
 	@ResponseBody
 	public int changePw(@RequestParam Map<String, String> data) {
 		return memberService.changePw(data);
+	}
+	
+	@RequestMapping("/member/check.do")
+	@ResponseBody
+	public String emailCheck(String userEmail) {
+		return memberService.emailCheck(userEmail);
+	}
+	
+	@RequestMapping("/member/secession.do")
+	@ResponseBody
+	public int secession(HttpSession session) {
+		int result = memberService.secession(((Member)session.getAttribute("loginInfo")).getUserId());
+		if(result > 0) {
+			session.invalidate();
+		}
+		return result;
 	}
 }

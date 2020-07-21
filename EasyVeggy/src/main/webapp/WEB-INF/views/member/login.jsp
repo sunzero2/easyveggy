@@ -31,7 +31,7 @@
             <div class="modal-body">
                <form action="/easyveggy/member/login.do" method="post">
                   <div class="form-group">
-                     <input name="userEmail" type="text" class="form-control" placeholder="Username"
+                     <input name="userEmail" type="text" class="form-control" placeholder="e-mail"
                         required="required">
                   </div>
                   <div class="form-group">
@@ -65,16 +65,19 @@
                   </div>
                   <div class="form-group">
                      <input type="email" class="form-control" name="userEmail"
-                       id="userEmail" placeholder="id" required="required">
+                       id="userEmail" placeholder="e-mail" required="required" style="width: 75%; display:inline-block;">
+                  	<button type="button" onclick="emailCheck();" class="emailCheckBtn btn btn-primary">Check</button>
                   </div>
                   <div class="form-group">
                      <input type="password" class="form-control" name="pw"
-                       placeholder="Password" required="required">
+                       id="userPwd" placeholder="Password" required="required">
+                     <span id="pwdSpan"></span>
                   </div>
                   <div class="form-group">
                      <input type="password" class="form-control"
                         id="pwdCheck"  placeholder="Confirm Password"
                         required="required">
+                     <span id="checkSpan"></span>
                   </div>
                   <div class="form-group">
                      <button type="submit"
@@ -87,5 +90,6 @@
       </div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="../resources/js/member/login.js"></script>
 </body>
 </html>

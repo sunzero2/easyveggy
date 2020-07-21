@@ -10,5 +10,6 @@ public interface MemberService {
 	public String searchId(Map<String, String> data);
 	public String searchPw(Map<String, String> data);
 	public int changePw(Map<String, String> data);
-	
+	public String emailCheck(String userEmail);
+	public int secession(int userId);
 }

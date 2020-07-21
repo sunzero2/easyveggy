@@ -9,6 +9,7 @@ function emailCheck() {
 		type: 'get',
 		data: $('#userEmail').serialize(),
 		success: function(data) {
+			console.log(data);
 			if(data != '') {
 				alert("이미 가입된 계정입니다.");
 				idCheckFlag = false;
@@ -44,17 +45,16 @@ document.querySelector('#userPwd').onkeydown = function(v) {
 			isSuccess = false;
 		}
 	}
-
+	
 	if(chk(regExpPw, testStr, '비밀번호를 확인하세요.')) {
 		isSuccess = false;
 	}
+	
 }
 
-
-document.querySelector('#pwdCheck').onkeydown = function(v) {
-	var pw = document.querySelector('#userPwd');
-	var ch = document.querySelector('#pwdCheck');
-	var testStr = ch.value + v.key;
+let pwCheck = document.getElementById('pwdCheck');
+pwCheck.onkeydown = function(v) {
+	var testStr = pwCheck.value + v.key;
 	
 	if(testStr == pw.value) {
 		check.style.display = 'block';

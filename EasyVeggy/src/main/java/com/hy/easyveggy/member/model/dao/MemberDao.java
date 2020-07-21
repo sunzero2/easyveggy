@@ -32,4 +32,12 @@ public class MemberDao {
 	public int changePw(Map<String, String> data) {
 		return sqlSession.update("Member.changePw", data);
 	}
+	
+	public String emailCheck(String userEmail) {
+		return sqlSession.selectOne("Member.emailCheck", userEmail);
+	}
+	
+	public int secession(int userId) {
+		return sqlSession.update("Member.secession", userId);
+	}
 }

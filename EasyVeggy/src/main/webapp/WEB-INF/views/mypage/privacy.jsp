@@ -94,6 +94,15 @@
 					</td>
 				</tr>
 			</tbody>
+			<tbody>
+				<tr>
+					<th class="privacyTh" scope="row">
+						<div class="innerThDiv">회원탈퇴</div>
+					</th>
+					<td class="privacyTd">
+						<button onclick="secession();" class="secessionBtn">회원탈퇴</button>
+				</tr>
+			</tbody>
 		</table>
 	</div>
 	<input id="userPw" type="hidden" value="${loginInfo.pw}">

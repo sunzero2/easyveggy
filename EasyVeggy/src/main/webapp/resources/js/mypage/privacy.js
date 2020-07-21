@@ -97,3 +97,19 @@ document.querySelector('#userPwdCheck').onkeydown = function(v) {
 		isSuccess = false;
 	}
 }
+
+function secession() {
+	if(confirm("정말로 탈퇴하시겠습니까?")) {
+		$.ajax({
+			url: '/easyveggy/member/secession.do',
+			success: function(rgx) {
+				if(rgx > 0) {
+					alert("정상적으로 처리되었습니다. 그동안 저희 서비스를 이용해주셔서 감사합니다.");
+					location.href = "/easyveggy/index/index.do";
+				} else {
+					alert("회원 탈퇴 중 에러가 발생하였습니다. 다시 시도해주십시오.");
+				}
+			}
+		})
+	}
+}
